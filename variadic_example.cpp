@@ -14,6 +14,6 @@ void write(const Arg1& firstArg, const Args& ... remainingArguments) {
 }
 
 int main(int argc, const char** argv) {
-	write("Here is an int :", 8);
+	write("Here is an int : ", 8);
 	cout << endl;
 }

@@ -11,3 +11,7 @@ add_executable( variadic_example
 add_executable( auto_example
     auto_example.cpp
 )
+
+add_executable( lambda_example
+    lambda_example.cpp
+)

@@ -15,3 +15,7 @@ add_executable( auto_example
 add_executable( lambda_example
     lambda_example.cpp
 )
+
+add_executable( other_example
+	other_example.cpp
+)

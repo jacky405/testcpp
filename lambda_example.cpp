@@ -10,8 +10,8 @@ void callFunction(std::function<void(int)> f) {
 
 void test1() {
 
-	auto f = [](int param) {
-		cout << param << endl;
+	auto f = [] (int param) {
+		cout << "param=" << param << endl;
 	};
 
 	callFunction(f);
@@ -23,7 +23,7 @@ public:
 		cout << "constructor" << endl;
 	}
 
-	MyClass(const MyClass& other) {
+	MyClass(const MyClass &other) {
 		cout << "copy constructor" << endl;
 	}
 };
@@ -34,22 +34,24 @@ void test2() {
 	int i = 6;
 
 	auto lambdaWithCapture = [object1, i](int param) {
-		cout << param << endl;
-		cout << i<< endl;
+		cout << "param=" << param << "; i=" << i << endl;
 	};
+
+	i = 10;
 
 	callFunction(lambdaWithCapture);
 
-	auto lambdaWithReferenceCapture = [&object1, i](int param) {
-		cout << param << endl;
-		cout << i<< endl;
+	auto lambdaWithReferenceCapture = [&object1, &i](int param) {
+		cout << "param=" << param << "; i=" << i << endl;
 	};
+
+	i = 15;
 
 	callFunction(lambdaWithReferenceCapture);
 
 }
 
-int main(int argc, const char** argv) {
+int main(int argc, const char * *argv) {
 	test1();
 	test2();
 }
